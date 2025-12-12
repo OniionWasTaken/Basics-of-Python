@@ -7,4 +7,4 @@ elif age >= 13 and age < 18:
 elif age >= 7 and age < 13:
     print("You can watch G and PG-rated movies.")
 elif age < 7:
-    print("You can only watch G-rated movies.")
+    print("You should only watch G-rated movies.")
