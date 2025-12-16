@@ -38,25 +38,35 @@ monthly_charge = 15.00
 
 print("Welcome to the GWCL Bill Calculator")
 consumption_input = int(input(f"Enter water consumption for the month ((in cubic meters)): "))
-rate = {}
+rate = 0.00
+usage_cost = 0.00
 
-if consumption_input >= 0 and consumption_input <= 15:
-    rate = 0.90
-elif consumption_input >= 16 and consumption_input <= 30:
-    rate = 1.20
-elif consumption_input >= 30 :
-    rate = 1.80
-else :
+if consumption_input > 15:
+    first_tier = min(consumption_input, 15)
+    consumption_input -= first_tier
+    usage_cost += first_tier * 0.90
+
+if consumption_input > 15:
+    second_tier = min(consumption_input, 15)
+    consumption_input -= second_tier
+    usage_cost += second_tier * 1.20
+
+if consumption_input > 0  :
+    remaining_consumption = min(consumption_input, 15)
+    consumption_input -= remaining_consumption
+    usage_cost += remaining_consumption * 0.90
+
+if consumption_input < 0:
     print("Invalid input.")
 
-total_bill = monthly_charge + consumption_input * rate
-total_cost = round(total_bill, 2)
+total_bill = monthly_charge + usage_cost
+total_bill = round(total_bill, 2)
 
 print("--- Monthly Water Bill Summary ---")
 print(f"Consumption: {consumption_input} cubic meters")
 print("Service Charge: GHS15.00")
 print(f"Consumption Cost: GHS{consumption_input * rate}")
-print(f"Total cost: GHS{total_cost}")
+print(f"Total cost: GHS{total_bill}")
 
 
 #Question 3
