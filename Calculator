@@ -1,0 +1,31 @@
+def calc():
+    while True:
+        print("1. Division")
+        print("2. Multiplication")
+        print("3. Addition")
+        print("4. Subtraction")
+        print("5. Exit")
+        option = input('Select what you want to do: ').lower()
+        if option != '1' and option != '2' and option != '3' and option != '4' and option!= '5' and option != 'multiplication' and option != 'addition' and option != 'subtraction' and option != 'division' and option != 'exit':
+            print("Please enter a valid option.")
+            continue
+        num1 = int(input('First Number: '))
+        num2 = int(input('Second Number: '))
+        if option == '1' or option == 'division':
+            if num2 == 0:
+                print("Math Error: division by zero")
+            else:
+                print("Result: ",num1 / num2)
+                break
+        elif option == '2' or option == 'multiplication':
+            print("Result: ",num1 * num2)
+            break
+        elif option == '3' or option == 'addition':
+            print("Result: ", num1 + num2)
+            break
+        elif option == '4' or option == 'subtraction':
+            print("Result: ",num1 - num2)
+            break
+        elif option == '5' or option == 'exit':
+            print("Goodbye!")
+            break
